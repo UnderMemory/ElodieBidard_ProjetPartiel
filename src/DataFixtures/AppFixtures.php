@@ -130,25 +130,28 @@ class AppFixtures extends Fixture
 
 
         foreach ($auteurs as $a) {
+            // normalement il aurait fallut faire une boucle sur le tableau d'auteurs avec 
+            // a l'intérieur un boucle qui créer les romans pour l'auteur courran
+            // mais je n'ai pas réussi à la mettre en place
             $auteur = new Auteur;
             $auteur
                 ->setNom($a['nom']);
             $manager->persist($auteur);
+
+            foreach ($roman as $r) {
+                $roman = new Roman;
+                $roman
+                    ->setTitre($r['titre'])
+                    ->setCouverture($r['couverture'])
+                    ->setPrix($r['prix'])
+                    ->setGenre($r['genre'])
+                    ->setResume($r['resume'])
+                    ->setAuteur($auteur);
+    
+    
+                $manager->persist($roman);
         }
 
-        foreach ($auteurs as $aut) {
-            $roman = new Roman;
-            $auteur = $this->$auteurRepository->findBy(['nom' => $aut['nomAuteur']]);
-            $roman
-                ->setTitre($aut['titre'])
-                ->setCouverture($aut['couverture'])
-                ->setPrix($aut['prix'])
-                ->setGenre($aut['genre'])
-                ->setResume($aut['resume'])
-                ->setAuteur($auteur);
-
-
-            $manager->persist($roman);
         }
 
         $manager->flush();
