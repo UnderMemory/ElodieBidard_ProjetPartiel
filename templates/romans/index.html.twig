@@ -29,17 +29,20 @@
                 <td>{{ roman.resume }}</td>
                 <td>{{ roman.relation }}</td>
                 <td>
-                    <a href="{{ path('romans_show', {'id': roman.id}) }}">show</a>
-                    <a href="{{ path('romans_edit', {'id': roman.id}) }}">edit</a>
+                    <a href="{{ path('romans_show', {'id': roman.id}) }}">
+                        <button type="button" class="btn btn-outline-info">Voir</button>
+                    </a>
+                    <a href="{{ path('romans_edit', {'id': roman.id}) }}">
+                        <button type="button" class="btn btn-outline-success mx-3">Editer</button>
+                    </a>
                 </td>
             </tr>
         {% else %}
-            <tr>
-                <td colspan="8">no records found</td>
-            </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('romans_new') }}">Create new</a>
+    <a href="{{ path('romans_new') }}">
+        <button type="button" class="btn btn-outline-danger">Danger</button>
+    </a>
 {% endblock %}
