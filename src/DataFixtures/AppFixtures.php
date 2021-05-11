@@ -17,7 +17,7 @@ class AppFixtures extends Fixture
         $this->auteurRepository = $auteurRepository;
     }
 
-    public function load(ObjectManager $manager, AuteurRepository $auteurRepository)
+    public function load(ObjectManager $manager)
     {
         $auteurs = [
             [
