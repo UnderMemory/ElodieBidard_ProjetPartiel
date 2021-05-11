@@ -138,7 +138,7 @@ class AppFixtures extends Fixture
                 ->setNom($a['nom']);
             $manager->persist($auteur);
 
-            foreach ($roman as $r) {
+            foreach ($a[Roman] as $r) {
                 $roman = new Roman;
                 $roman
                     ->setTitre($r['titre'])
@@ -148,12 +148,9 @@ class AppFixtures extends Fixture
                     ->setResume($r['resume'])
                     ->setAuteur($auteur);
     
-    
                 $manager->persist($roman);
         }
-
         }
-
         $manager->flush();
     }
 }
