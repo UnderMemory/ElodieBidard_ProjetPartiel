@@ -18,6 +18,7 @@ class Roman
     private $id;
 
     /**
+     * @Assert\NotBlank(message="Ce champ ne peut être vide")
      * @ORM\Column(type="string", length=255)
      */
     private $titre;
@@ -29,15 +30,23 @@ class Roman
 
     /**
      * @ORM\Column(type="float")
+     * @Assert\NotBlank(message="entrez un prix entre 1 et 30")
+     * @Assert\Range(
+     * min = 1,
+     * max = 30,
+     * minMessage = "minimum 1",
+     * maxMessage = "maximum 30")
      */
     private $prix;
 
     /**
+     * @Assert\NotBlank(message="Ce champ ne peut être vide")
      * @ORM\Column(type="string", length=255)
      */
     private $genre;
 
     /**
+     * @Assert\NotBlank(message="Ce champ ne peut être vide")
      * @ORM\Column(type="text")
      */
     private $resume;

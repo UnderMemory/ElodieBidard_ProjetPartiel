@@ -3,11 +3,17 @@
 {% block title %}Nouveau Roman{% endblock %}
 
 {% block body %}
-    <h1>Ajouter un roman</h1>
+
+<div class="container">
+
+    <h1 class="text-center">Ajouter un roman</h1>
 
     {{ include('romans/_form.html.twig') }}
 
     <a href="{{ path('romans_index') }}">
     <button type="button" class="btn btn-outline-info">Retour à la liste</button>
     </a>
+
+</div>
+
 {% endblock %}

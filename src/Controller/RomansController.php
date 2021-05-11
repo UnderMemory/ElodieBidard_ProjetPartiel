@@ -68,7 +68,10 @@ class RomansController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
-
+            $this->addFlash(
+                'info',
+                'Modification enregistrée avec succès !'
+            );
             return $this->redirectToRoute('romans_index');
         }
 

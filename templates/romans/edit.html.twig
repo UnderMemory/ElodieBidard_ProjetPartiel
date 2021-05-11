@@ -1,13 +1,25 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit Roman{% endblock %}
+{% block title %}Modifier un Roman{% endblock %}
 
 {% block body %}
-    <h1>Edit Roman</h1>
+
+<div class="container">
+    <h1>Modifier un Roman</h1>
+
+    {% for label, messages in app.flashes %}
+        {% for message in messages %}
+            <div class="alert alert-{{ label }} my-3">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endfor %}
 
     {{ include('romans/_form.html.twig', {'button_label': 'Update'}) }}
 
     <a href="{{ path('romans_index') }}">back to list</a>
 
     {{ include('romans/_delete_form.html.twig') }}
+</div>
+
 {% endblock %}
