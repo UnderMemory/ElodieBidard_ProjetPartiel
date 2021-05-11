@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Roman{% endblock %}
+
+{% block body %}
+    <h1>Roman</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ roman.id }}</td>
+            </tr>
+            <tr>
+                <th>Titre</th>
+                <td>{{ roman.titre }}</td>
+            </tr>
+            <tr>
+                <th>Couverture</th>
+                <td>{{ roman.couverture }}</td>
+            </tr>
+            <tr>
+                <th>Prix</th>
+                <td>{{ roman.prix }}</td>
+            </tr>
+            <tr>
+                <th>Genre</th>
+                <td>{{ roman.genre }}</td>
+            </tr>
+            <tr>
+                <th>Resume</th>
+                <td>{{ roman.resume }}</td>
+            </tr>
+            <tr>
+                <th>Relation</th>
+                <td>{{ roman.relation }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('romans_index') }}">back to list</a>
+
+    <a href="{{ path('romans_edit', {'id': roman.id}) }}">edit</a>
+
+    {{ include('romans/_delete_form.html.twig') }}
+{% endblock %}

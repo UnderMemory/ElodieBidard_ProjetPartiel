@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Roman{% endblock %}
+
+{% block body %}
+    <h1>Edit Roman</h1>
+
+    {{ include('romans/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('romans_index') }}">back to list</a>
+
+    {{ include('romans/_delete_form.html.twig') }}
+{% endblock %}

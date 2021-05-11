@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Roman{% endblock %}
+
+{% block body %}
+    <h1>Create new Roman</h1>
+
+    {{ include('romans/_form.html.twig') }}
+
+    <a href="{{ path('romans_index') }}">back to list</a>
+{% endblock %}

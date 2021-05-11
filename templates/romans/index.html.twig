@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Roman index{% endblock %}
+
+{% block body %}
+    <h1>Roman index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Titre</th>
+                <th>Couverture</th>
+                <th>Prix</th>
+                <th>Genre</th>
+                <th>Resume</th>
+                <th>Relation</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for roman in roman %}
+            <tr>
+                <td>{{ roman.id }}</td>
+                <td>{{ roman.titre }}</td>
+                <td>{{ roman.couverture }}</td>
+                <td>{{ roman.prix }}</td>
+                <td>{{ roman.genre }}</td>
+                <td>{{ roman.resume }}</td>
+                <td>{{ roman.relation }}</td>
+                <td>
+                    <a href="{{ path('romans_show', {'id': roman.id}) }}">show</a>
+                    <a href="{{ path('romans_edit', {'id': roman.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('romans_new') }}">Create new</a>
+{% endblock %}
